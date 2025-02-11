@@ -7,15 +7,8 @@ namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UsersController : ControllerBase
+public class UsersController(DataContext Context) : ControllerBase
 {
-    private DataContext _context;
-    public UsersController(DataContext Context)
-    {
-        _context = Context;     
-    }
-
-    
     [HttpGet]
     public async Task<IEnumerable<AppUser>> GetUsers() 
     {
